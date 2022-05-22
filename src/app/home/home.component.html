@@ -1,0 +1,19 @@
+<nav class="navbar fixed-top navbar-light bg-white">
+  <div class="container">
+    <div class="logo"></div>
+    <div>
+      <div class="add-post" data-toggle="modal" data-target="#exampleModal"></div>
+      <a href="#"
+        (click)="logout()"
+        style="margin-left: 15px; vertical-align: middle;"
+      >Sair</a>
+    </div>
+    
+  </div>  
+</nav>
+
+<br /><br /><br />
+<div class="container">
+  <app-feed #timeline></app-feed>
+  <app-add-post (updateTimeline)="updateTimeline()"></app-add-post>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 d-flex justify-content-end" [@animation-banner]="bannerState">
+      <app-banner></app-banner>
+    </div>
+
+    <div
+      *ngIf="loginScreen"
+      class="col-sm-6 d-flex justify-content-start"
+      [@animation-login]="loginState"
+      [@animation-error-form]="formState"
+      (@animation-error-form.done)="resetFormState()"
+    >
+      <app-login
+        #login
+        (setState)="setFormState($event)"
+        (changeScreen)="changeScreen($event)"
+      ></app-login>
+    </div>
+
+    <div
+      *ngIf="registerScreen"
+      class="col-sm-6 d-flex justify-content-start"
+      [@animation-login]="loginState"
+      [@animation-error-form]="formState"
+      (@animation-error-form.done)="resetFormState()"
+    >
+     <app-register
+      #register
+      (setState)="setFormState($event)"
+      (changeScreen)="changeScreen($event)"
+    ></app-register>
+    </div>
+
+  </div>
+</div>

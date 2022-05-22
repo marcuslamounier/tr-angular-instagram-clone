@@ -1,0 +1,45 @@
+<div class="card" style="width: 20rem;">
+  <div class="card-body">
+    <div class="card-title"></div>
+    
+    <form novalidate [formGroup]="formLogin" (ngSubmit)="authenticate()">
+      <div class="form-group">
+        <input 
+          type="email" 
+          class="form-control" 
+          placeholder="E-mail"
+          formControlName="email"
+        >
+      </div>
+      <div class="form-group">
+        <input 
+          type="password"
+          class="form-control" 
+          placeholder="Senha"
+          formControlName="password"
+        >
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary btn-sm btn-block"
+        [disabled]="!formLogin.valid"
+      >Entrar</button>
+    </form>
+
+    <div *ngIf="this.errorInAuth !== undefined">
+      <hr />
+      <small class="form-text text-danger">
+      {{ this.errorInAuth }}
+    </small>
+    </div>
+
+  </div>
+</div>
+<br />
+<div class="card" style="width: 20rem;">
+  <div class="card-body">
+    <p class="card-text">
+      Não tem uma conta? <a (click)="showRegister()" href="#" class="card-link">Cadastre-se</a>
+    </p> 
+  </div>
+</div>
